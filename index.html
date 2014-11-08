@@ -142,7 +142,6 @@
                         <li>Path disclosure</li>
                         <li>DOS (Denial o service)</li>
                         <li>CRSF (Cross site request forgery)</li>
-                        <li>Dezvaluirea informatiilor (confidentiale)</li>
                         <li>Injectare si executie de cod arbitrar (includere de fisiere arbitrare)</li>
                     </ul>
                 </div>
@@ -250,7 +249,24 @@
                     <p>Path disclosure permite atacatorului sa afle calea exacta (la nivelul sistemului de fisiere) a unui fisier. Astfel poate vizualiza (codul sursa) respectivul fisier scurt-circuitand sistemul care sta la baza aplicatiei.</p>
                     <p>Aceasta vulnerabilitate se datoreaza in general configurarii gresite a serverului web sau a sistemului care sta la baza aplicatiei web (framework-ul sau platforma web)</p>
                     <p>Exemplu: intregul repository Subversion sau git al aplicatiei web incarcat pe mediul de productie cu restul fisierelor fara ca accesul la folderele specifice sa fie filtrat/interzis la nivelul serverului web</p>
+                </div>
+            </div>
 
+            <!-- Slide -->
+            <div id="outline-container-5ccc" class="outline-1 slide">
+                <h1 id="sec-5ccc"><span class="section-number-5ccc"></span>Cateva vulnerabilitari (DOS)</h1>
+                <div class="outline-text-1" id="text-5ccc">
+                    <p>DOS (Denial of Service)  apare cand atacatorul faptul ca o eroare nu se trateaza o eroare in mod corespunzator in cadrul aplicatiei ducand la blocarea lui</p>
+                    <p>In general aceasta vulnerabilitate tine de erori de implementare, erori de configurare a serverului web sau de scalabilitatea aplicatiei</p>
+                </div>
+            </div>
+
+            <!-- Slide -->
+            <div id="outline-container-5cccc" class="outline-1 slide">
+                <h1 id="sec-5cccc"><span class="section-number-5cccc"></span>Cateva vulnerabilitari (CRSF)</h1>
+                <div class="outline-text-1" id="text-5cccc">
+                    <p>CRSF (Cross site request forgery) este o vulnerabilitate care forteaza utilizatorul sa efectueze operatii nedorite in cadrul aplicatiei.</p>
+                    <p> Una din metode este transmiterea unor cereri special construite care sunt acceptate de catre aplicatia/situl tinta fara nici o validare corespunzatore si care duc la executarea unor operatii nedorite</p>
                 </div>
             </div>
 
@@ -296,6 +312,9 @@
                                 </li>
                                 <li>
                                     <a href="http://www.sitepoint.com/php-security-blunders/">Top 7 PHP Security Blunders</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.acunetix.com/websitesecurity/csrf-attacks/">CSRF Attacks – What They Are and How to Defend Against Them</a>
                                 </li>
                                 <li>
                                     <a href="https://www.owasp.org/index.php/Web_Application_Firewall">Web Application Firewall</a>
