@@ -47,7 +47,7 @@
         <link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
         <link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
         <link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
-        <link rel="stylesheet" href="ui/default/main.css" type="text/css" media="projection" id="main" />
+        <link rel="stylesheet" href="ui/default/main.css" type="text/css" />
         <!-- S5 JS -->
         <script src="ui/default/slides.js" type="text/javascript"></script>
         <script type="text/javascript">
@@ -216,6 +216,9 @@
                     <p>
                         Pe langa aceste reguli de implementare se pot folosi diverse solutii suplimentare care sa creasca nivelul de securitate cum ar fi un web application firewall (este recomandata  inclusiv cresterea securizari la nivelul bazei de date) <a href="#sec-sources">(surse)</a>.
                     </p>
+                    <p>
+                        O alta recomandare este, pe cat posibil avand in vedere aparitia unor probleme de perfomanta, implementarea unui sistem de urmarire a operatiilor si datelor prelucrate (in cazul aplicatiilor complexe) care sa permita reconstituirea datelor initale sau a pasilor urmati. Un astfel de sistem poate ajuta la reducerea pierderilor, dar mai ales la gasirea erorilor/vulnerabilitatilor si eliminarea lor.
+                    </p>
                 </div>
             </div>
 
@@ -223,6 +226,31 @@
             <div id="outline-container-5" class="outline-1 slide">
                 <h1 id="sec-5"><span class="section-number-5"></span>Cateva vulnerabilitari (XSS)</h1>
                 <div class="outline-text-1" id="text-5">
+                    <p>XSS (Cross-site-scripting) este o vulnerabilitate care apare datorita nevalidarii/filtrarii a datelor de intrare sau iesire care permite atacatorului rularea de cod arbitrar in cadrul browserului in contextul sitului vizitat.</p>
+                    <p>Se trimite sitului (de obicei prin intermediului functionalitatilor de cautare) o bucata de cod care este inclus in pagina fara ca acesta sa fie filtrat.</p>
+                    <p>Prin aceasta metoda de exemplu atacatorul poate extrage cookie-urile de autentificare/autorizare care sa ii permita impersonarea utilizatorului nevinovat</p>
+                    <p>XSS poate evitat prin filtrarea datelor de intrare sau filtrarea/transformarea datelor afisate</p>
+                </div>
+            </div>
+
+            <!-- Slide -->
+            <div id="outline-container-5c" class="outline-1 slide">
+                <h1 id="sec-5c"><span class="section-number-5c"></span>Cateva vulnerabilitari (SQL Injection)</h1>
+                <div class="outline-text-1" id="text-5c">
+                    <p>SQL Injection este o vulnerabilitate care apare datorita nevalidarii/filtrarii a datelor de intrare care permite atacatorului sa "injecteze" o interogare SQL in cadrul datelor furnizate</p>
+                    <p>Prin aceasta metoda se pot efectua operatii nepermise in baza de date (vizuaalizare, modifcicare,stergere)</p>
+                    <p>Acest atac pot fi evitat prin filtrarea datelor care se includ in cadrul unor interogari SQL. Majoritatea framework-urilor fac acest lucru automat sau ofera metode de realizare a acestor filtrari (in momentul in care se folosesc interogari manuale)</p>
+                </div>
+            </div>
+
+            <!-- Slide -->
+            <div id="outline-container-5cc" class="outline-1 slide">
+                <h1 id="sec-5cc"><span class="section-number-5cc"></span>Cateva vulnerabilitari (Path disclosure)</h1>
+                <div class="outline-text-1" id="text-5cc">
+                    <p>Path disclosure permite atacatorului sa afle calea exacta (la nivelul sistemului de fisiere) a unui fisier. Astfel poate vizualiza (codul sursa) respectivul fisier scurt-circuitand sistemul care sta la baza aplicatiei.</p>
+                    <p>Aceasta vulnerabilitate se datoreaza in general configurarii gresite a serverului web sau a sistemului care sta la baza aplicatiei web (framework-ul sau platforma web)</p>
+                    <p>Exemplu: intregul repository Subversion sau git al aplicatiei web incarcat pe mediul de productie cu restul fisierelor fara ca accesul la folderele specifice sa fie filtrat/interzis la nivelul serverului web</p>
+
                 </div>
             </div>
 
@@ -250,7 +278,7 @@
                         </li>
                         <li>
                             Lista de resurse si unelte pentru testarea securitatii aplicatiilor/siturilor web:
-                            <ul style="list-style-type: square">
+                            <ul style="list-style-type: square" class="normal-font-size">
                                 <li>
                                     <a href="http://danielmiessler.com/projects/webappsec_testing_resources/">Web Application Security Testing Resources</a>
                                 </li>
@@ -265,6 +293,9 @@
                                 </li>
                                 <li>
                                     <a href="http://security.stackexchange.com/questions/19620/securing-a-javascript-single-page-app-with-restful-backend">Securing a JavaScript Single Page App with RESTful backend</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.sitepoint.com/php-security-blunders/">Top 7 PHP Security Blunders</a>
                                 </li>
                                 <li>
                                     <a href="https://www.owasp.org/index.php/Web_Application_Firewall">Web Application Firewall</a>
